@@ -4,7 +4,7 @@ include "../../../inc/dbinfo.inc";
 $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
 if (mysqli_connect_errno($connection))
-  echo "Problemas com a conexão";
+  echo "Problemas com a conexão, error: " . mysqli_connect_error();
 
 
 // articles
