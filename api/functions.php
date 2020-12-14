@@ -3,9 +3,9 @@ include "../../../inc/dbinfo.inc";
 
 $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-if (!$connection) {
+if (mysqli_connect_errno($connection))
   echo "Problemas com a conexão";
-}
+
 
 // articles
 function createArticle($title, $subtitle, $content)
