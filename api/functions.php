@@ -1,8 +1,7 @@
 <?php
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 include "../../../inc/dbinfo.inc";
 
-$connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
 if (!$connection) {
   echo "Problemas com a conexão";
@@ -12,8 +11,7 @@ if (!$connection) {
 function createArticle($title, $subtitle, $content)
 {
   $sql = "INSERT INTO tb_article VALUES (null, '$title', '$subtitle', '$content')";
-  $res = $GLOBALS['connection']->query($sql);
-	echo("Error description: " . $GLOBALS['connection']->error);
+  $res = mysqli_query($GLOBALS['connection'], $sql);
 
   return $res;
 }
