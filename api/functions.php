@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 include "../../../inc/dbinfo.inc";
 
 $connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
@@ -12,6 +13,7 @@ function createArticle($title, $subtitle, $content)
 {
   $sql = "INSERT INTO tb_article VALUES (null, '$title', '$subtitle', '$content')";
   $res = $GLOBALS['connection']->query($sql);
+	echo("Error description: " . $GLOBALS['connection']->error);
 
   return $res;
 }

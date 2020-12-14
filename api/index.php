@@ -34,6 +34,7 @@ if ($REQUEST_METHOD == 'POST') {
 
   if (isset($data->new)) {
     $res = createArticle($data->title, $data->subtitle, $data->content);
+    
     if ($res)
       echo '{"success": "artigo criado com sucesso"}';
     else
